@@ -20,10 +20,13 @@ class ProductScreen extends StatefulWidget {
 class _ProductScreenState extends State<ProductScreen> {
 
   String size;
+  String dropdownValue;
+  bool pressAttention = true;
 
   final ProductData product;
 
   _ProductScreenState(this.product);
+
 
   @override
   Widget build(BuildContext context) {
@@ -116,11 +119,52 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                 ),
                 Divider(height: 16.0, color: Colors.transparent,),
+                Text(
+                  "Loja",
+                  style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w500
+                  ),
+                ),
+                DropdownButton(
+                  hint: Text("Selecione a loja"),
+                  value: dropdownValue,
+                  onChanged: (String newValue){
+                    setState(() {
+                      dropdownValue = newValue;
+                    });
+                  },
+                  items: <String>['Loja A', 'Loja B', 'Loja C', 'Loja D']
+                    .map<DropdownMenuItem<String>>((String value){
+                    return DropdownMenuItem(
+                        value: value,
+                        child: Text(value)
+                    );
+                  }).toList(),
+                ),
+                Divider(height: 16.0, color: Colors.transparent,),
+
+                RaisedButton(
+                  child: Text(
+                    "Condicional",
+                    style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w500
+                    ),
+                  ),
+                  textColor: Colors.white,
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
+                  ),
+                  color: pressAttention ? Colors.grey : Colors.blue,
+                  onPressed: () => setState(() => pressAttention = !pressAttention),
+                ),
+                Divider(height: 16.0, color: Colors.transparent,),
                 SizedBox(
                   height: 44.0,
                   width: 5000.0,
                   child: RaisedButton(
-                      onPressed: size != null ?
+                      onPressed: size != null && dropdownValue != null ?
                       (){
                         if(UserModel.of(context).isLoggedIn()){
                           //adicionar ao carrinho

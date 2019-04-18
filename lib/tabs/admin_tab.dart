@@ -9,8 +9,8 @@ class AdminTab extends StatelessWidget {
         color: Colors.black,
         height: 50.0,
         onPressed: () async{
-          var doc = await Firestore.instance.collection("products").document("camisetas").collection("items").document("UsknNxCaMrhzZvEf20l8").get();
-          await Firestore.instance.collection("products").document("camisetas").collection("items").add(doc.data);
+          var doc = await Firestore.instance.collection("products").document("blusas").collection("items").document("-LcHVUOO1D90YBZnatwq").get();
+          await Firestore.instance.collection("products").document("blusas").collection("items").add(doc.data);
         },
       ),
     );

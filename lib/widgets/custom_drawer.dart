@@ -18,7 +18,7 @@ class CustomDrawer extends StatelessWidget {
           gradient: LinearGradient(
               colors: [
                 Color.fromARGB(255, 203, 236, 241),
-                Colors.white
+                Color.fromARGB(85, 203, 236, 241)
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -95,7 +95,7 @@ class CustomDrawer extends StatelessWidget {
               DrawerTile(Icons.list, "Produtos", pageController, 1),
               DrawerTile(Icons.location_on, "Lojas", pageController, 2),
               DrawerTile(Icons.playlist_add_check, "Meus pedidos", pageController, 3),
-              DrawerTile(Icons.add, "Admin", pageController, 4),
+//              DrawerTile(Icons.add, "Admin", pageController, 4),
             ],
           )
         ],

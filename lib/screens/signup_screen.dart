@@ -112,7 +112,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         )
     );
   }
-  void _onSuccess(){
+  Future _onSuccess() async {
     _scaffoldKey.currentState.showSnackBar(
       SnackBar(
           content: Text("Usuário criado com sucesso!"),
@@ -120,6 +120,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         duration: Duration(seconds: 2),
       )
     );
+    await Future.delayed(Duration(seconds: 1));
     Navigator.of(context).pop();
   }
 

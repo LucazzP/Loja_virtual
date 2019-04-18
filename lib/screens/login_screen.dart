@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:loja_virtual/models/user_model.dart';
 import 'package:loja_virtual/screens/signup_screen.dart';
@@ -120,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
         )
     );
   }
-  void _onSuccess(){
+  Future _onSuccess() async {
     _scaffoldKey.currentState.showSnackBar(
         SnackBar(
           content: Text("Usuário logado com sucesso!"),
@@ -128,6 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
           duration: Duration(seconds: 2),
         )
     );
+    await Future.delayed(Duration(seconds: 1));
     Navigator.of(context).pop();
   }
 

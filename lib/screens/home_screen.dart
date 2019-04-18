@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/models/cart_model.dart';
-import 'package:loja_virtual/tabs/admin_tab.dart';
 import 'package:loja_virtual/tabs/home_tab.dart';
 import 'package:loja_virtual/tabs/orders_tab.dart';
 import 'package:loja_virtual/tabs/places_tab.dart';
-import 'package:loja_virtual/tabs/poducts_tab.dart';
+import 'package:loja_virtual/tabs/products_tab.dart';
 import 'package:loja_virtual/widgets/cart_button.dart';
 import 'package:loja_virtual/widgets/custom_drawer.dart';
 
@@ -20,7 +18,7 @@ class HomeScreen extends StatelessWidget {
       controller: _pageController,
       children: <Widget>[
         Scaffold(
-          body: HomeTab(),
+          body: HomeTab(_pageController),
           drawer: CustomDrawer(_pageController),
           floatingActionButton: CartButton(),
         ),
@@ -49,14 +47,14 @@ class HomeScreen extends StatelessWidget {
           body: OrdersTab(),
           drawer: CustomDrawer(_pageController),
         ),
-        Scaffold(
-          appBar: AppBar(
-            title: Text("Admin page"),
-            centerTitle: true,
-          ),
-          body: AdminTab(),
-          drawer: CustomDrawer(_pageController),
-        ),
+//        Scaffold(
+//          appBar: AppBar(
+//            title: Text("Admin page"),
+//            centerTitle: true,
+//          ),
+//          body: AdminTab(),
+//          drawer: CustomDrawer(_pageController),
+//        ),
       ],
     );
   }
